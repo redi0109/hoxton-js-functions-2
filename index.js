@@ -1443,4 +1443,28 @@ const users = [
     }
   ]
   
-let typeLetter = prompt('Enter a letter: ');
+  //- Prompt the user for a letter
+let enterLetter = String(prompt('Enter a letter: '));
+
+
+//  - Find all the users who's name contains the letter 
+let findUser = users.filter(user => (user.name).includes(enterLetter));
+console.log(findUser);
+
+
+//  - Say hi to those users in the console 
+findUser.forEach(user => console.log(`Hi ${user.name}`));
+
+
+// - but only 1 greeting every 2 seconds.
+setInterval(() => {
+    console.log("Hello " + findUser[0].name);
+}
+, 2000);
+
+
+// - Prompt the user for a user ID. Using the value, find all the todos that are Incomplete and console.log them.
+
+let enterUserId = Number(prompt('Enter a user ID: '));
+let findTodo = todos.filter(todo => (todo.userId === enterUserId) && (todo.completed === false));
+console.log(findTodo);
